@@ -1,4 +1,4 @@
-AJUDA - AMIGO PET (FASE 1)
+AJUDA - MEU AMIGO CÃO - PET SHOP (FASE 1)
 
 1. Acesse index.html para ver a página inicial.
 2. No menu superior, clique em Produtos, Serviços ou Contato.
