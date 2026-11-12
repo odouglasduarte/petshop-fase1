@@ -1,10 +1,15 @@
-AJUDA - MEU AMIGO CÃO - PET SHOP (FASE 1)
+MEU AMIGO CÃO - PET SHOP
+Ajuda para navegação no site
 
-1. Acesse index.html para ver a página inicial.
-2. No menu superior, clique em Produtos, Serviços ou Contato.
-3. Em Produtos, consulte dois acessórios, duas rações e dois itens de higiene e limpeza.
-4. Em Serviços, consulte banho, tosa e banho e tosa, com e sem tele-busca.
-5. Os links de navegação e os atalhos de categorias são os únicos recursos de interação desta fase.
-6. Não há venda online, pagamento, cadastro ou agendamento: serão assuntos de etapas posteriores.
-7. Os valores, contatos e endereço são fictícios e usados somente no exercício.
-8. As seis fotografias estão na pasta imagens do repositório; seus créditos estão na página Contato.
+Acesse o site: https://odouglasduarte.github.io/petshop-fase1/
+
+1. Início: apresenta o petshop e os links para as outras páginas.
+2. Produtos: mostra os seis produtos divididos em acessórios, rações e higiene e limpeza.
+3. Serviços: apresenta os valores de banho, tosa e banho e tosa, com ou sem tele-busca.
+4. Contato: reúne as informações fictícias do petshop e os créditos das imagens.
+
+Para navegar, utilize os links na parte superior das páginas.
+Em Produtos, clique no nome de uma categoria para ir diretamente a ela.
+
+O site é informativo. Nesta fase, não há carrinho, pagamento ou agendamento online.
+Os preços e contatos são fictícios e utilizados somente no projeto acadêmico.
