@@ -2,7 +2,7 @@
 
 Projeto da fase 1 da disciplina **Fundamentos de Sistemas Web**.
 
-**Autor:** Douglas Duarte da Silva  
+**Autor:** Douglas Duarte
 **Site:** https://odouglasduarte.github.io/petshop-fase1/
 
 ## Objetivo
