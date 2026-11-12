@@ -7,4 +7,4 @@ AJUDA - MEU AMIGO CÃO - PET SHOP (FASE 1)
 5. Os links de navegação e os atalhos de categorias são os únicos recursos de interação desta fase.
 6. Não há venda online, pagamento, cadastro ou agendamento: serão assuntos de etapas posteriores.
 7. Os valores, contatos e endereço são fictícios e usados somente no exercício.
-8. As fotos são externas e dependem de conexão à internet; suas fontes estão na página Contato.
+8. As seis fotografias estão na pasta imagens do repositório; seus créditos estão na página Contato.
