@@ -24,9 +24,9 @@ Não há compra, carrinho ou agendamento nesta fase. O site é apenas demonstrat
 
 ## Imagens e licenças
 
-As seis fotografias são carregadas a partir de links externos do Wikimedia Commons.
-Consulte `contato.html` para autoria e licenças. O site precisa de conexão à internet para mostrar as fotos.
-Para uma entrega mais robusta, recomenda-se baixar os arquivos autorizados e alterar o atributo `src` para caminhos locais.
+As seis fotografias ficam na pasta `imagens/`, dentro deste repositório, e são carregadas por caminhos relativos (`src="imagens/nome-do-arquivo.jpg"`).
+As fotos foram obtidas no Pexels. Consulte `contato.html` para créditos e informações sobre o uso das imagens.
+Algumas fotografias são ilustrativas e não mostram a embalagem exata do produto anunciado.
 
 ## Publicação
 
