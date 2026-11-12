@@ -1,4 +1,4 @@
-# Amigo Pet - Fase 1
+# Meu amigo cão - Pet Shop - Fase 1
 
 Exemplo acadêmico de site de petshop criado com HTML5, para a disciplina Fundamentos de Sistemas Web.
 
