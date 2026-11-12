@@ -1,2 +1,1 @@
 Nesta pasta ficam as seis fotografias utilizadas no catálogo do petshop.
-Para enviar imagens: abra esta pasta no GitHub, clique em Add file > Upload files e selecione os arquivos JPG.
