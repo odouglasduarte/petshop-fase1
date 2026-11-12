@@ -24,8 +24,7 @@ Não há compra, carrinho ou agendamento nesta fase. O site é apenas demonstrat
 
 ## Imagens e licenças
 
-Cinco fotografias estão na pasta `imagens/` e são carregadas por caminhos relativos. Elas foram obtidas no Pexels.
-A fotografia da areia higiênica é carregada diretamente do Wikimedia Commons (licença CC BY-SA 3.0).
+As seis fotografias estão na pasta `imagens/` e são carregadas por caminhos relativos. Elas foram obtidas no Pexels.
 Consulte `contato.html` para os créditos e informações sobre o uso das imagens.
 Algumas fotografias são ilustrativas e não mostram a embalagem exata do produto anunciado.
 
