@@ -1,40 +1,31 @@
-# Meu amigo cão - Pet Shop - Fase 1
+# Meu amigo cão - Pet Shop
 
-Exemplo acadêmico de site de petshop criado com HTML5, para a disciplina Fundamentos de Sistemas Web.
+Projeto da fase 1 da disciplina **Fundamentos de Sistemas Web**.
 
-## Arquivos
+**Autor:** Douglas Duarte da Silva  
+**Site:** https://odouglasduarte.github.io/petshop-fase1/
 
-- `index.html`: página inicial e acesso às categorias.
-- `produtos.html`: seis produtos, com foto, descrição e preço; dois em cada categoria.
-- `servicos.html`: banho, tosa e banho e tosa, com e sem tele-busca, com preços.
-- `contato.html`: informações ilustrativas de contato e créditos das fotografias.
-- `AJUDA.txt`: orientações de uso e limites do sistema.
+## Objetivo
 
-## Como usar
+Apresentar um catálogo simples de produtos e serviços de um petshop fictício, utilizando a estrutura básica do HTML5.
 
-Abra o arquivo `index.html` em um navegador ou acesse o endereço publicado no GitHub Pages.
-Use o menu no cabeçalho para navegar entre as páginas.
-Na página Produtos, use os links para ir diretamente às categorias.
-Na página Serviços, compare os valores com e sem tele-busca.
+## Páginas
 
-## Tecnologias
+- **Início (`index.html`):** apresentação do petshop e acesso às demais páginas.
+- **Produtos (`produtos.html`):** dois acessórios, duas rações não perecíveis e dois produtos de higiene e limpeza, com imagens, descrições e preços.
+- **Serviços (`servicos.html`):** opções de banho, tosa e banho e tosa, com valores para atendimento com e sem tele-busca.
+- **Contato (`contato.html`):** informações fictícias de contato e créditos das fotografias.
 
-HTML5, sem folhas de estilo CSS, Bootstrap ou scripts JavaScript.
-Não há compra, carrinho ou agendamento nesta fase. O site é apenas demonstrativo.
+## Como utilizar
 
-## Imagens e licenças
+A navegação é feita pelos links do menu superior. Na página Produtos, é possível acessar diretamente cada categoria. Na página Serviços, os valores podem ser consultados em uma tabela.
 
-As seis fotografias estão na pasta `imagens/` e são carregadas por caminhos relativos. Elas foram obtidas no Pexels.
-Consulte `contato.html` para os créditos e informações sobre o uso das imagens.
-Algumas fotografias são ilustrativas e não mostram a embalagem exata do produto anunciado.
+O arquivo `AJUDA.txt` também apresenta instruções de navegação.
 
-## Publicação
+## Tecnologias e limitações
 
-Crie um repositório público no GitHub, envie estes arquivos para a raiz e configure
-Settings > Pages > Deploy from a branch > main > /(root) > Save.
-O repositório e o endereço do site devem constar no documento de entrega da fase 1.
+O site utiliza HTML5, sem CSS, Bootstrap ou JavaScript, conforme as regras da fase 1. Nesta etapa, as páginas são informativas e não realizam compras, pagamentos ou agendamentos.
 
-## Alterações para autoria
+As imagens do catálogo estão na pasta `imagens/` e foram obtidas no Pexels. Os créditos estão na página Contato.
 
-Revise o nome do petshop, os produtos, os preços, as descrições, as informações de contato e o nome do autor.
-Teste a navegação e confira as fotografias. Faça escolhas próprias e compreenda as tags utilizadas antes de entregar.
+Os produtos, valores e dados comerciais são ilustrativos.
