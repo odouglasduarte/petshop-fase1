@@ -1,164 +1,143 @@
-/* FASE 2 | Meu amigo cão - Pet Shop
-   JavaScript organizado por funcionalidades (Aulas 7 a 9).
-   Formulário apenas demonstrativo: não envia nem salva dados pessoais. */
+/* Funções da fase 2: relógio, carrossel e simulação do agendamento.
+   O formulário não envia nem armazena dados. */
+
 document.addEventListener("DOMContentLoaded", function () {
-  "use strict";
 
-  // 1) Mostra data e hora locais. Atualiza a cada minuto.
-  const relogio = document.getElementById("relogio");
-  function atualizarRelogio() {
-    if (!relogio) return;
-    relogio.textContent = new Intl.DateTimeFormat("pt-BR", {
-      dateStyle: "full", timeStyle: "short"
-    }).format(new Date());
-  }
-  atualizarRelogio();
-  if (relogio) setInterval(atualizarRelogio, 60000);
+    // Exibe a data e a hora. Exemplo de função temporal estudada na aula 8.
+    function atualizarRelogio() {
+        const relogio = document.getElementById("relogio");
+        if (relogio) {
+            const agora = new Date();
+            relogio.textContent = agora.toLocaleDateString("pt-BR") + " - " +
+                agora.toLocaleTimeString("pt-BR");
+        }
+    }
+    atualizarRelogio();
+    setInterval(atualizarRelogio, 1000);
 
-  // 2) Controle manual para pausar/reiniciar o carrossel do Bootstrap.
-  const botaoCarrossel = document.getElementById("pausarCarrossel");
-  const elementoCarrossel = document.getElementById("carrosselPrincipal");
-  if (botaoCarrossel && elementoCarrossel && window.bootstrap) {
-    const carrossel = bootstrap.Carousel.getOrCreateInstance(elementoCarrossel);
-    let pausado = false;
-    botaoCarrossel.addEventListener("click", function () {
-      pausado = !pausado;
-      if (pausado) carrossel.pause();
-      else carrossel.cycle();
-      botaoCarrossel.textContent = pausado ? "Reativar imagens" : "Pausar imagens";
-      botaoCarrossel.setAttribute("aria-pressed", String(pausado));
+    // Usa as funções prontas do carrossel do Bootstrap.
+    const botaoPausa = document.getElementById("pausarCarrossel");
+    const carrosselElemento = document.getElementById("carrosselPrincipal");
+    if (botaoPausa && carrosselElemento && window.bootstrap) {
+        const carrossel = bootstrap.Carousel.getOrCreateInstance(carrosselElemento);
+        let pausado = false;
+        botaoPausa.addEventListener("click", function () {
+            if (pausado) {
+                carrossel.cycle();
+                botaoPausa.textContent = "Pausar imagens";
+            } else {
+                carrossel.pause();
+                botaoPausa.textContent = "Reativar imagens";
+            }
+            pausado = !pausado;
+            botaoPausa.setAttribute("aria-pressed", String(pausado));
+        });
+    }
+
+    // O restante das funções é utilizado apenas na página de agendamento.
+    const formulario = document.getElementById("formAgendamento");
+    if (!formulario) return;
+
+    const data = document.getElementById("dataAgendamento");
+    const campoPreco = document.getElementById("resumoValor");
+    const resultado = document.getElementById("resultado");
+    const resumoTexto = document.getElementById("resumoTexto");
+    const botaoEnviar = document.getElementById("enviarSimulacao");
+
+    // Define amanhã como a primeira data disponível no calendário.
+    const amanha = new Date();
+    amanha.setDate(amanha.getDate() + 1);
+    const ano = amanha.getFullYear();
+    const mes = String(amanha.getMonth() + 1).padStart(2, "0");
+    const dia = String(amanha.getDate()).padStart(2, "0");
+    data.min = ano + "-" + mes + "-" + dia;
+
+    // Lê o serviço e o tipo de atendimento escolhidos.
+    function opcaoSelecionada(nome) {
+        const elemento = formulario.querySelector('input[name="' + nome + '"]:checked');
+        return elemento ? elemento.value : "";
+    }
+
+    // Calcula os valores demonstrativos apresentados na página Serviços.
+    function calcularPreco() {
+        const servico = opcaoSelecionada("servico");
+        const metodo = opcaoSelecionada("metodo");
+        if (!servico || !metodo) return 0;
+
+        let valor = 0;
+        if (servico === "banho") valor = 45;
+        if (servico === "tosa") valor = 55;
+        if (servico === "banhoTosa") valor = 85;
+        if (metodo === "busca") valor += 20;
+        return valor;
+    }
+
+    function atualizarPreco() {
+        const valor = calcularPreco();
+        if (valor === 0) {
+            campoPreco.textContent = "Selecione um serviço e o tipo de atendimento.";
+        } else {
+            campoPreco.textContent = "Valor demonstrativo: R$ " +
+                valor.toFixed(2).replace(".", ",") + ".";
+        }
+    }
+
+    formulario.querySelectorAll('input[name="servico"], input[name="metodo"]').forEach(
+        function (campo) {
+            campo.addEventListener("change", atualizarPreco);
+        }
+    );
+
+    // Valida a data e impede a escolha de domingos.
+    function verificarData() {
+        data.setCustomValidity("");
+        if (!data.value) return;
+        const escolhida = new Date(data.value + "T12:00:00");
+        if (escolhida.getDay() === 0) {
+            data.setCustomValidity("Escolha uma data de segunda a sábado.");
+        }
+    }
+    data.addEventListener("change", verificarData);
+
+    // O botão só é ativado quando o JavaScript foi carregado.
+    botaoEnviar.disabled = false;
+
+    formulario.addEventListener("submit", function (evento) {
+        evento.preventDefault(); // Não envia dados pela internet.
+        resultado.hidden = true;
+        verificarData();
+
+        // Usa os atributos HTML5 required, type, pattern e min.
+        if (!formulario.checkValidity()) {
+            formulario.reportValidity();
+            return;
+        }
+
+        const servico = opcaoSelecionada("servico");
+        const metodo = opcaoSelecionada("metodo");
+        let nomeServico = "Banho";
+        if (servico === "tosa") nomeServico = "Tosa";
+        if (servico === "banhoTosa") nomeServico = "Banho e tosa";
+        const nomeMetodo = metodo === "busca" ? "Tele-busca" : "Entrega no local";
+
+        // A prévia não mostra CPF, endereço ou outros dados pessoais.
+        const partes = data.value.split("-");
+        const dataFormatada = partes[2] + "/" + partes[1] + "/" + partes[0];
+        resumoTexto.textContent =
+            document.getElementById("nomePet").value + " - " +
+            nomeServico + " - " + nomeMetodo + " - " +
+            dataFormatada + " às " +
+            document.getElementById("horarioAgendamento").value +
+            " - R$ " + calcularPreco().toFixed(2).replace(".", ",");
+
+        resultado.hidden = false;
+        resultado.focus();
     });
-  }
 
-  // 3) Só executa os recursos abaixo na página de agendamento.
-  const formulario = document.getElementById("formAgendamento");
-  if (!formulario) return;
-
-  const cpf = document.getElementById("cpf");
-  const data = document.getElementById("dataAgendamento");
-  const horario = document.getElementById("horarioAgendamento");
-  const estadoData = document.getElementById("estadoData");
-  const resumoValor = document.getElementById("resumoValor");
-  const resultado = document.getElementById("resultado");
-  const resumoTexto = document.getElementById("resumoTexto");
-  const telefones = document.getElementById("telefone");
-  // Sem JavaScript o botão permanece desabilitado: nenhum dado é enviado ao servidor.
-  document.getElementById("enviarSimulacao").disabled = false;
-
-  // Datas no horário LOCAL (evita deslocamentos de data por UTC).
-  function formatoDataLocal(d) {
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const dia = String(d.getDate()).padStart(2, "0");
-    return y + "-" + m + "-" + dia;
-  }
-  const amanha = new Date();
-  amanha.setHours(12, 0, 0, 0);
-  amanha.setDate(amanha.getDate() + 1);
-  const limite = new Date(amanha);
-  limite.setDate(limite.getDate() + 89);
-  data.min = formatoDataLocal(amanha);
-  data.max = formatoDataLocal(limite);
-
-  // Calcula uma estimativa demonstrativa a partir das tabelas do site.
-  const precos = {
-    banho: { local: 45, busca: 65 },
-    tosa: { local: 55, busca: 75 },
-    banhoTosa: { local: 85, busca: 105 }
-  };
-  function escolha(nome) {
-    const campo = formulario.querySelector('input[name="' + nome + '"]:checked');
-    return campo ? campo.value : "";
-  }
-  function atualizarValor() {
-    const servico = escolha("servico");
-    const metodo = escolha("metodo");
-    if (!servico || !metodo) {
-      resumoValor.textContent = "Selecione um serviço e o tipo de atendimento.";
-      return;
-    }
-    const valor = precos[servico][metodo];
-    resumoValor.textContent = "Valor demonstrativo: " + valor.toLocaleString("pt-BR", {
-      style: "currency", currency: "BRL"
-    }) + " (cães de pequeno porte).";
-  }
-  formulario.querySelectorAll('input[name="servico"], input[name="metodo"]').forEach(function (campo) {
-    campo.addEventListener("change", atualizarValor);
-  });
-  atualizarValor();
-
-  // Atualiza a orientação do calendário e verifica domingos.
-  function verificarData() {
-    data.setCustomValidity("");
-    if (!data.value) { estadoData.textContent = "Escolha um dia entre amanhã e os próximos 90 dias."; return false; }
-    const partes = data.value.split("-").map(Number);
-    const escolhida = new Date(partes[0], partes[1] - 1, partes[2], 12);
-    const valida = data.value >= data.min && data.value <= data.max && escolhida.getDay() !== 0;
-    if (!valida) {
-      data.setCustomValidity("Escolha uma data de segunda a sábado dentro do período permitido.");
-      estadoData.textContent = "Não atendemos aos domingos. Escolha outra data.";
-    } else {
-      estadoData.textContent = "Data dentro do período demonstrativo de agendamento.";
-    }
-    return valida;
-  }
-  data.addEventListener("change", verificarData);
-  verificarData();
-
-  // Mantém o campo CPF apenas numérico e valida os dígitos verificadores.
-  cpf.addEventListener("input", function () {
-    cpf.value = cpf.value.replace(/\D/g, "").slice(0, 11);
-    cpf.setCustomValidity("");
-  });
-  if (telefones) telefones.addEventListener("input", function () {
-    telefones.value = telefones.value.replace(/[^\d()+\s-]/g, "").slice(0, 20);
-  });
-  function cpfValido(valor) {
-    if (!/^\d{11}$/.test(valor) || /^(\d)\1{10}$/.test(valor)) return false;
-    let soma = 0;
-    for (let i = 0; i < 9; i++) soma += Number(valor[i]) * (10 - i);
-    let digito = (soma * 10) % 11;
-    if (digito === 10) digito = 0;
-    if (digito !== Number(valor[9])) return false;
-    soma = 0;
-    for (let i = 0; i < 10; i++) soma += Number(valor[i]) * (11 - i);
-    digito = (soma * 10) % 11;
-    if (digito === 10) digito = 0;
-    return digito === Number(valor[10]);
-  }
-
-  // Ao limpar o formulário, também esconde a prévia e remove estados de erro.
-  formulario.addEventListener("reset", function () {
-    resultado.hidden = true;
-    cpf.setCustomValidity("");
-    data.setCustomValidity("");
-    estadoData.textContent = "Escolha um dia entre amanhã e os próximos 90 dias.";
-    resumoValor.textContent = "Selecione um serviço e o tipo de atendimento.";
-  });
-
-  // Não armazena nem transmite dados; mostra apenas prévia sem CPF/endereço.
-  formulario.addEventListener("submit", function (evento) {
-    evento.preventDefault();
-    resultado.hidden = true;
-    cpf.setCustomValidity("");
-    verificarData();
-    if (cpf.value && !cpfValido(cpf.value)) {
-      cpf.setCustomValidity("Informe um CPF com dígitos verificadores válidos.");
-    }
-    if (!formulario.checkValidity()) {
-      formulario.reportValidity();
-      return;
-    }
-    const rotulos = { banho: "Banho", tosa: "Tosa", banhoTosa: "Banho e tosa" };
-    const metodo = escolha("metodo") === "busca" ? "Tele-busca" : "Entrega do pet no local";
-    const partes = data.value.split("-").map(Number);
-    const dataLegivel = new Intl.DateTimeFormat("pt-BR").format(new Date(partes[0], partes[1] - 1, partes[2]));
-    const pet = document.getElementById("nomePet").value.trim();
-    const valor = precos[escolha("servico")][escolha("metodo")];
-    resumoTexto.textContent = pet + " • " + rotulos[escolha("servico")] + " • " + metodo +
-      " • " + dataLegivel + " às " + horario.value + " • " +
-      valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) + ".";
-    resultado.hidden = false;
-    resultado.focus();
-  });
+    // Esconde o resumo quando o formulário é limpo.
+    formulario.addEventListener("reset", function () {
+        resultado.hidden = true;
+        data.setCustomValidity("");
+        campoPreco.textContent = "Selecione um serviço e o tipo de atendimento.";
+    });
 });
