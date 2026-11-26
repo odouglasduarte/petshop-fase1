@@ -18,7 +18,7 @@ No arquivo `js/app.js` foram organizadas funções para:
 - pausar e reativar a rotação do carrossel;
 - definir limites de data do agendamento;
 - verificar datas, inclusive exclusão de domingos;
-- conferir campos obrigatórios e dígitos verificadores de CPF;
+- conferir campos obrigatórios e formato do CPF (11 números);
 - calcular valor demonstrativo conforme serviço e modalidade;
 - exibir uma prévia do agendamento **sem enviar ou salvar informações pessoais**.
 
