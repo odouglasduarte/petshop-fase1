@@ -10,6 +10,7 @@
   --neutro: #f8faf7;
 }
 html { scroll-behavior: smooth; }
+.container[id] { scroll-margin-top: 95px; }
 body { color: var(--texto); background: var(--neutro); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
 a { color: var(--verde); }
 a:hover { color: var(--verde-escuro); }
