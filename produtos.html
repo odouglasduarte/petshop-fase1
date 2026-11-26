@@ -2,77 +2,163 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Catálogo de acessórios, rações e higiene do Meu amigo cão - Pet Shop.">
     <title>Produtos | Meu amigo cão - Pet Shop</title>
+    <!-- Bootstrap fornece a grade responsiva, a navegação e o carrossel. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Estilos próprios da fase 2, separados do conteúdo HTML. -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- defer carrega scripts após a leitura do HTML. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Meu amigo cão - Pet Shop</h1>
-        <p>Produtos e cuidados para cães e gatos.</p>
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a> |
-            <a href="contato.html">Contato</a>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <!-- Cabeçalho: identificação e links acessíveis em todas as páginas. -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+            <div class="container">
+                <a class="navbar-brand brand" href="index.html"><span class="brand-icon" aria-hidden="true">🐾</span>Meu amigo cão <small class="d-none d-sm-inline fw-normal">| Pet Shop</small></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="produtos.html" aria-current="page">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <hr>
-    <main>
-        <h2>Catálogo de produtos</h2>
-        <p>Os produtos estão divididos em três categorias. Os preços são demonstrativos.</p>
-        <p>Ir para: <a href="#acessorios">Acessórios</a> | <a href="#racoes">Rações</a> | <a href="#higiene">Higiene e limpeza</a></p>
-        <section id="acessorios">
-            <h2>Acessórios</h2>
-            <article>
-                <h3>Peitoral ajustável para cães</h3>
-                <img src="imagens/pexels-kuiyibo-12002618.jpg" alt="Cão usando peitoral durante um passeio" width="280">
-                <p>Peitoral para passeios, com alças e regulagem para diferentes tamanhos.</p>
-                <p><strong>Preço: R$ 59,90</strong></p>
-            </article>
-            <article>
-                <h3>Brinquedo de borracha em formato de osso</h3>
-                <img src="imagens/pexels-maiksax-33742356.jpg" alt="Cachorro brincando com osso de borracha laranja" width="280">
-                <p>Brinquedo resistente para momentos de diversão dos cães.</p>
-                <p><strong>Preço: R$ 24,90</strong></p>
-            </article>
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow">Catálogo de produtos</span>
+                <h1 class="section-title">Escolha com carinho</h1>
+                <p class="section-copy">Dois produtos de cada categoria, com imagens, descrições e valores ilustrativos.</p>
+                <nav aria-label="Categorias do catálogo" class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-outline-brand btn-sm" href="#acessorios">Acessórios</a>
+                    <a class="btn btn-outline-brand btn-sm" href="#racoes">Rações</a>
+                    <a class="btn btn-outline-brand btn-sm" href="#higiene">Higiene e limpeza</a>
+                </nav>
+            </div>
         </section>
-        <section id="racoes">
-            <h2>Rações não perecíveis</h2>
-            <article>
-                <h3>Ração seca para cães - pacote de 3 kg</h3>
-                <img src="imagens/pexels-cottonbro-6568949.jpg" alt="Cachorro comendo ração seca em um pote" width="280">
-                <p>Alimento seco não perecível para cães adultos.</p>
-                <p><strong>Preço: R$ 72,90</strong></p>
-            </article>
-            <article>
-                <h3>Ração seca para gatos - pacote de 1 kg</h3>
-                <img src="imagens/pexels-eduardo-lopez-242403618-16618557.jpg" alt="Gato comendo ração seca em um pote verde" width="280">
-                <p>Alimento seco não perecível para gatos adultos.</p>
-                <p><strong>Preço: R$ 36,90</strong></p>
-            </article>
+        <!-- Cada produto usa imagem com texto alternativo e descrição própria. -->
+        <section class="container pb-5 pt-3" id="acessorios" aria-labelledby="titulo-acessorios">
+            <div class="mb-4">
+                <span class="category-label">Categoria</span>
+                <h2 class="section-title" id="titulo-acessorios">Acessórios</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-4">
+                    <article class="product-card">
+                        <img src="imagens/pexels-kuiyibo-12002618.jpg" alt="Cão usando peitoral com tiras de regulagem durante um passeio" loading="lazy">
+                        <div class="card-body">
+                            <h3>Peitoral ajustável para cães</h3>
+                            <p>Peitoral para passeios, com alças e regulagem para diferentes tamanhos.</p>
+                            <p class="price mb-0">R$ 59,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <article class="product-card">
+                        <img src="imagens/pexels-maiksax-33742356.jpg" alt="Cachorro brincando com um osso de borracha laranja" loading="lazy">
+                        <div class="card-body">
+                            <h3>Brinquedo de borracha em formato de osso</h3>
+                            <p>Brinquedo resistente para momentos de diversão dos cães.</p>
+                            <p class="price mb-0">R$ 24,90</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
-        <section id="higiene">
-            <h2>Higiene e limpeza</h2>
-            <article>
-                <h3>Areia higiênica para gatos - 4 kg</h3>
-                <img src="imagens/pexels-hamza-yaich-1076080225-33965114.jpg" alt="Gatinho sobre pedrinhas; fotografia ilustrativa, não representa a areia higiênica anunciada" width="280">
-                <p>Produto para a higiene diária da caixa de areia dos gatos.</p>
-                <p><strong>Preço: R$ 27,90</strong></p>
-            </article>
-            <article>
-                <h3>Pá para limpeza de ambientes</h3>
-                <img src="imagens/pexels-shvetsa-5217930.jpg" alt="Pá rosa de limpeza, fotografia ilustrativa" width="280">
-                <p>Pá plástica para recolher pequenos resíduos e facilitar a limpeza do ambiente.</p>
-                <p><strong>Preço: R$ 14,90</strong></p>
-            </article>
+        <section class="container pb-5 pt-3" id="racoes" aria-labelledby="titulo-racoes">
+            <div class="mb-4">
+                <span class="category-label">Categoria</span>
+                <h2 class="section-title" id="titulo-racoes">Rações não perecíveis</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-4">
+                    <article class="product-card">
+                        <img src="imagens/pexels-cottonbro-6568949.jpg" alt="Cachorro se alimentando de ração seca em um pote" loading="lazy">
+                        <div class="card-body">
+                            <h3>Ração seca para cães - pacote de 3 kg</h3>
+                            <p>Alimento seco não perecível para cães adultos.</p>
+                            <p class="price mb-0">R$ 72,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <article class="product-card">
+                        <img src="imagens/pexels-eduardo-lopez-242403618-16618557.jpg" alt="Gato comendo ração seca em tigela verde" loading="lazy">
+                        <div class="card-body">
+                            <h3>Ração seca para gatos - pacote de 1 kg</h3>
+                            <p>Alimento seco não perecível para gatos adultos.</p>
+                            <p class="price mb-0">R$ 36,90</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
+        <section class="container pb-5 pt-3" id="higiene" aria-labelledby="titulo-higiene">
+            <div class="mb-4">
+                <span class="category-label">Categoria</span>
+                <h2 class="section-title" id="titulo-higiene">Higiene e limpeza</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-4">
+                    <article class="product-card">
+                        <img src="imagens/pexels-hamza-yaich-1076080225-33965114.jpg" alt="Gatinho deitado sobre pedrinhas; foto meramente ilustrativa" loading="lazy">
+                        <div class="card-body">
+                            <h3>Areia higiênica para gatos - 4 kg</h3>
+                            <p>Produto para a higiene diária da caixa de areia dos gatos. Foto ilustrativa.</p>
+                            <p class="price mb-0">R$ 27,90</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <article class="product-card">
+                        <img src="imagens/pexels-shvetsa-5217930.jpg" alt="Pá rosa usada para recolher resíduos em atividades de limpeza" loading="lazy">
+                        <div class="card-body">
+                            <h3>Pá para limpeza de ambientes</h3>
+                            <p>Pá plástica para recolher pequenos resíduos e facilitar a limpeza do ambiente.</p>
+                            <p class="price mb-0">R$ 14,90</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="container pb-4"><p class="note-box">Os preços e produtos são ilustrativos, utilizados somente para o projeto acadêmico. As imagens não representam necessariamente uma marca ou embalagem específica.</p></section>
     </main>
-    <hr>
-    <footer>
-        <p><strong>Meu amigo cão - Pet Shop</strong> | Ipatinga - MG</p>
-        <p>Contato: (31) 3000-0000 (número ilustrativo)</p>
-        <p><a href="index.html">Início</a> | <a href="contato.html">Contato</a></p>
-        <p><small>Site desenvolvido por Douglas Duarte da Silva. Informações e valores fictícios.</small></p>
+    <!-- Rodapé mantido da fase 1, agora com apresentação visual personalizada. -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h2 class="h4 fw-bold">🐾 Meu amigo cão - Pet Shop</h2>
+                    <p class="footer-muted mb-1">Cuidado e carinho para os animais de estimação.</p>
+                    <p class="footer-muted mb-0">Ipatinga - MG | (31) 3000-0000 (contato fictício)</p>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="h6 fw-bold">Acesso rápido</h2>
+                    <p class="mb-2"><a href="produtos.html">Produtos</a> · <a href="servicos.html">Serviços</a></p>
+                    <p class="mb-0"><a href="agendamento.html">Agendamento</a> · <a href="contato.html">Contato</a></p>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="h6 fw-bold">Informação</h2>
+                    <p class="footer-muted">Projeto acadêmico demonstrativo. Não realiza vendas nem reservas reais.</p>
+                </div>
+            </div>
+            <div class="footer-rule d-flex flex-column flex-md-row justify-content-between gap-2">
+                <span class="footer-muted">Desenvolvido por Douglas Duarte da Silva</span>
+                <span class="footer-muted">Fundamentos de Sistemas Web • Fase 2</span>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

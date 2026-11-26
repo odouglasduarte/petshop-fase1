@@ -2,50 +2,96 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Informações fictícias de contato e créditos fotográficos.">
     <title>Contato | Meu amigo cão - Pet Shop</title>
+    <!-- Bootstrap fornece a grade responsiva, a navegação e o carrossel. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Estilos próprios da fase 2, separados do conteúdo HTML. -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- defer carrega scripts após a leitura do HTML. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Meu amigo cão - Pet Shop</h1>
-        <p>Produtos e cuidados para cães e gatos.</p>
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a> |
-            <a href="contato.html">Contato</a>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <!-- Cabeçalho: identificação e links acessíveis em todas as páginas. -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+            <div class="container">
+                <a class="navbar-brand brand" href="index.html"><span class="brand-icon" aria-hidden="true">🐾</span>Meu amigo cão <small class="d-none d-sm-inline fw-normal">| Pet Shop</small></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendar</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contato.html" aria-current="page">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <hr>
-    <main>
-        <section>
-            <h2>Contato</h2>
-            <p>Nome do estabelecimento: Meu amigo cão - Pet Shop.</p>
-            <p>Telefone ilustrativo: (31) 3000-0000.</p>
-            <p>Local de atendimento: Ipatinga - MG (localização fictícia para o projeto).</p>
-            <p>As informações deste site fazem parte de um exercício acadêmico, e o estabelecimento não realiza atendimentos reais.</p>
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow">Informações de contato</span>
+                <h1 class="section-title">Fale com a gente</h1>
+                <p class="section-copy">Uma página demonstrativa com informações fictícias do petshop e os créditos das fotografias.</p>
+            </div>
         </section>
-        <section>
-            <h2>Créditos das imagens</h2>
-            <p>As seis fotografias utilizadas no catálogo são do Pexels e estão na pasta imagens deste projeto.</p>
-            <p>Fotógrafos e identificação das imagens:</p>
-            <ul>
-                <li>Peitoral: Kuiyibo - pexels-kuiyibo-12002618.jpg.</li>
-                <li>Brinquedo: Maiksax - pexels-maiksax-33742356.jpg.</li>
-                <li>Ração para cães: cottonbro studio - pexels-cottonbro-6568949.jpg.</li>
-                <li>Ração para gatos: Eduardo Lopez - pexels-eduardo-lopez-242403618-16618557.jpg.</li>
-                <li>Areia higiênica (foto ilustrativa): Hamza Yaich - pexels-hamza-yaich-1076080225-33965114.jpg.</li>
-                <li>Pá de limpeza: SHVETS - pexels-shvetsa-5217930.jpg.</li>
-            </ul>
-            <p><a href="https://www.pexels.com/license/">Condições de uso das fotografias no Pexels</a>.</p>
+        <section class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-5"><div class="feature-card h-100">
+                    <span class="feature-icon" aria-hidden="true">📍</span>
+                    <h2 class="h4 fw-bold">Meu amigo cão - Pet Shop</h2>
+                    <p><strong>Local:</strong> Ipatinga - MG (localização ilustrativa)</p>
+                    <p><strong>Telefone:</strong> (31) 3000-0000 (fictício)</p>
+                    <p class="mb-0">Este é um projeto acadêmico. O petshop não realiza atendimentos reais.</p>
+                </div></div>
+                <div class="col-lg-7"><div class="feature-card h-100">
+                    <h2 class="h4 fw-bold">Créditos das imagens</h2>
+                    <p>As seis fotos do catálogo foram obtidas no Pexels e estão armazenadas na pasta <code>imagens</code> do repositório. Fotografias atribuídas a:</p>
+                    <ul class="mb-3">
+                        <li>Peitoral — Kuiyibo.</li>
+                        <li>Brinquedo — Maiksax.</li>
+                        <li>Ração para cães — cottonbro studio.</li>
+                        <li>Ração para gatos — Eduardo Lopez.</li>
+                        <li>Foto ilustrativa da areia higiênica — Hamza Yaich.</li>
+                        <li>Pá para limpeza — SHVETS.</li>
+                    </ul>
+                    <p class="mb-0">Informações de uso: <a href="https://www.pexels.com/license/" target="_blank" rel="noopener noreferrer">licença do Pexels (abre em nova aba)</a>.</p>
+                </div></div>
+            </div>
         </section>
     </main>
-    <hr>
-    <footer>
-        <p><strong>Meu amigo cão - Pet Shop</strong> | Ipatinga - MG</p>
-        <p>Contato: (31) 3000-0000 (número ilustrativo)</p>
-        <p><a href="index.html">Início</a> | <a href="contato.html">Contato</a></p>
-        <p><small>Site desenvolvido por Douglas Duarte da Silva. Informações e valores fictícios.</small></p>
+    <!-- Rodapé mantido da fase 1, agora com apresentação visual personalizada. -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h2 class="h4 fw-bold">🐾 Meu amigo cão - Pet Shop</h2>
+                    <p class="footer-muted mb-1">Cuidado e carinho para os animais de estimação.</p>
+                    <p class="footer-muted mb-0">Ipatinga - MG | (31) 3000-0000 (contato fictício)</p>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="h6 fw-bold">Acesso rápido</h2>
+                    <p class="mb-2"><a href="produtos.html">Produtos</a> · <a href="servicos.html">Serviços</a></p>
+                    <p class="mb-0"><a href="agendamento.html">Agendamento</a> · <a href="contato.html">Contato</a></p>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="h6 fw-bold">Informação</h2>
+                    <p class="footer-muted">Projeto acadêmico demonstrativo. Não realiza vendas nem reservas reais.</p>
+                </div>
+            </div>
+            <div class="footer-rule d-flex flex-column flex-md-row justify-content-between gap-2">
+                <span class="footer-muted">Desenvolvido por Douglas Duarte da Silva</span>
+                <span class="footer-muted">Fundamentos de Sistemas Web • Fase 2</span>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

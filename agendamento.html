@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Formulário de cadastro do cliente e pet, com simulação de banho, tosa e tele-busca.">
+    <title>Cadastro e agendamento | Meu amigo cão - Pet Shop</title>
+    <!-- Bootstrap fornece a grade responsiva, a navegação e o carrossel. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Estilos próprios da fase 2, separados do conteúdo HTML. -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- defer carrega scripts após a leitura do HTML. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <!-- Cabeçalho: identificação e links acessíveis em todas as páginas. -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+            <div class="container">
+                <a class="navbar-brand brand" href="index.html"><span class="brand-icon" aria-hidden="true">🐾</span>Meu amigo cão <small class="d-none d-sm-inline fw-normal">| Pet Shop</small></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="agendamento.html" aria-current="page">Agendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow">Cadastro e agenda • Fase 2</span>
+                <h1 class="section-title">Simule o agendamento do seu pet</h1>
+                <p class="section-copy">Preencha os dados do responsável e do animal, escolha o serviço, a modalidade e a data desejada.</p>
+                <p class="note-box mb-0"><strong>Simulação acadêmica:</strong> nenhum cadastro é salvo ou enviado. Não existe agendamento real e os horários não representam disponibilidade confirmada. Utilize dados fictícios nos testes.</p>
+            </div>
+        </section>
+        <section class="container py-5" aria-labelledby="tituloFormulario">
+            <h2 id="tituloFormulario" class="visually-hidden">Formulário de cadastro e agendamento</h2>
+            <!-- Formulário HTML5 com validação nativa e conferência JavaScript. -->
+            <form id="formAgendamento" method="post">
+                <fieldset class="form-panel">
+                    <legend>1. Dados do cliente</legend>
+                    <p class="required-note">Campos marcados com * são obrigatórios. Use informações fictícias para testar.</p>
+                    <div class="row g-3">
+                        <div class="col-md-7"><label class="form-label" for="nomeCliente">Nome completo *</label><input class="form-control" id="nomeCliente" name="nomeCliente" type="text" placeholder="Nome e sobrenome" minlength="3" autocomplete="name" required></div>
+                        <div class="col-md-5"><label class="form-label" for="cpf">CPF *</label><input class="form-control" id="cpf" name="cpf" type="text" inputmode="numeric" maxlength="11" pattern="[0-9]{11}" placeholder="11 dígitos, sem pontuação" aria-describedby="dicaCpf" required><div id="dicaCpf" class="form-text">Validação demonstrativa dos dígitos do CPF. Não use dados reais.</div></div>
+                        <div class="col-12"><span class="form-label d-block mb-2" id="rotuloSexo">Sexo *</span>
+                            <div role="group" aria-labelledby="rotuloSexo" class="d-flex flex-wrap gap-3">
+                                <label class="form-check"><input class="form-check-input" type="radio" name="sexo" value="feminino" required> <span class="form-check-label">Feminino</span></label>
+                                <label class="form-check"><input class="form-check-input" type="radio" name="sexo" value="masculino"> <span class="form-check-label">Masculino</span></label>
+                                <label class="form-check"><input class="form-check-input" type="radio" name="sexo" value="naoInformar"> <span class="form-check-label">Prefiro não informar</span></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><label class="form-label" for="telefone">Telefone *</label><input class="form-control" id="telefone" name="telefone" type="tel" placeholder="(31) 99999-9999" minlength="10" maxlength="20" autocomplete="tel" required></div>
+                        <div class="col-md-6"><label class="form-label" for="email">E-mail *</label><input class="form-control" id="email" name="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required></div>
+                        <div class="col-md-8"><label class="form-label" for="rua">Endereço (rua e bairro) *</label><input class="form-control" id="rua" name="rua" type="text" placeholder="Rua, avenida e bairro" autocomplete="street-address" required></div>
+                        <div class="col-md-4"><label class="form-label" for="numero">Número *</label><input class="form-control" id="numero" name="numero" type="text" placeholder="Número ou S/N" required></div>
+                        <div class="col-md-5"><label class="form-label" for="cidade">Cidade *</label><input class="form-control" id="cidade" name="cidade" type="text" placeholder="Ex.: Ipatinga" autocomplete="address-level2" required></div>
+                        <div class="col-md-3"><label class="form-label" for="uf">Estado *</label><select class="form-select" id="uf" name="uf" required><option value="">Selecione</option><option value="MG">MG</option><option value="ES">ES</option><option value="RJ">RJ</option><option value="SP">SP</option><option value="outro">Outro</option></select></div>
+                        <div class="col-md-4"><label class="form-label" for="cep">CEP *</label><input class="form-control" id="cep" name="cep" type="text" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" placeholder="Somente 8 números" autocomplete="postal-code" required></div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-panel">
+                    <legend>2. Dados do pet</legend>
+                    <div class="row g-3">
+                        <div class="col-md-6"><label class="form-label" for="nomePet">Nome do pet *</label><input class="form-control" id="nomePet" name="nomePet" type="text" placeholder="Ex.: Mel" required></div>
+                        <div class="col-md-6"><label class="form-label" for="especie">Espécie *</label><select class="form-select" id="especie" name="especie" required><option value="">Selecione</option><option value="cao">Cão</option><option value="gato">Gato</option></select></div>
+                        <div class="col-md-6"><label class="form-label" for="raca">Raça *</label><input class="form-control" id="raca" name="raca" type="text" placeholder="Ex.: SRD" required></div>
+                        <div class="col-md-3"><label class="form-label" for="idadePet">Idade (anos) *</label><input class="form-control" id="idadePet" name="idadePet" type="number" min="0" max="35" step="1" placeholder="Ex.: 3" required></div>
+                        <div class="col-md-3"><label class="form-label" for="porte">Porte *</label><select class="form-select" id="porte" name="porte" required><option value="">Selecione</option><option value="pequeno">Pequeno</option><option value="medio">Médio</option><option value="grande">Grande</option></select></div>
+                        <div class="col-12"><label class="form-label" for="observacoes">Observações sobre o pet (opcional)</label><textarea class="form-control" id="observacoes" name="observacoes" rows="3" maxlength="300" placeholder="Alguma informação importante para o atendimento?"></textarea></div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-panel">
+                    <legend>3. Serviço e agendamento</legend>
+                    <div class="row g-3">
+                        <div class="col-12"><span id="rotuloServico" class="form-label d-block">Serviço *</span>
+                            <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="rotuloServico">
+                                <label class="form-check"><input class="form-check-input" type="radio" name="servico" value="banho" required> <span class="form-check-label">Banho</span></label>
+                                <label class="form-check"><input class="form-check-input" type="radio" name="servico" value="tosa"> <span class="form-check-label">Tosa</span></label>
+                                <label class="form-check"><input class="form-check-input" type="radio" name="servico" value="banhoTosa"> <span class="form-check-label">Banho e tosa</span></label>
+                            </div>
+                        </div>
+                        <div class="col-12"><span id="rotuloMetodo" class="form-label d-block">Como o pet chegará ao local? *</span>
+                            <div class="d-flex flex-wrap gap-3" role="group" aria-labelledby="rotuloMetodo">
+                                <label class="form-check"><input class="form-check-input" type="radio" name="metodo" value="local" required> <span class="form-check-label">Entrega do pet no local</span></label>
+                                <label class="form-check"><input class="form-check-input" type="radio" name="metodo" value="busca"> <span class="form-check-label">Tele-busca (buscar e devolver)</span></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><label class="form-label" for="dataAgendamento">Data desejada *</label><input class="form-control" id="dataAgendamento" name="dataAgendamento" type="date" aria-describedby="estadoData" required><div id="estadoData" class="form-text" aria-live="polite">Escolha um dia entre amanhã e os próximos 90 dias.</div></div>
+                        <div class="col-md-6"><label class="form-label" for="horarioAgendamento">Horário desejado *</label><select class="form-select" id="horarioAgendamento" name="horarioAgendamento" required><option value="">Selecione o horário</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select></div>
+                        <div class="col-12"><p id="resumoValor" class="note-box mb-2" aria-live="polite">Selecione um serviço e o tipo de atendimento.</p><p class="text-secondary mb-0 small">Agenda ilustrativa: segunda a sábado, sem garantia de disponibilidade. Valores da tabela de serviços para cães de pequeno porte.</p></div>
+                        <div class="col-12"><label class="form-check"><input class="form-check-input" type="checkbox" id="ciente" required> <span class="form-check-label">Entendi que este cadastro é apenas uma demonstração e não cria um agendamento real. *</span></label></div>
+                    </div>
+                </fieldset>
+                <div class="d-flex gap-3 flex-wrap">
+                    <button class="btn btn-brand btn-lg px-4" type="submit">Conferir simulação</button>
+                    <button class="btn btn-outline-brand btn-lg px-4" type="reset">Limpar formulário</button>
+                </div>
+                <div class="booking-summary" id="resultado" role="status" aria-live="polite" tabindex="-1" hidden>
+                    <h2 class="h4 fw-bold">Prévia do atendimento</h2>
+                    <p id="resumoTexto" class="mb-2"></p>
+                    <p class="mb-0"><strong>Atenção:</strong> esta simulação não registra seus dados, não realiza reservas e não confirma horários.</p>
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- Rodapé mantido da fase 1, agora com apresentação visual personalizada. -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h2 class="h4 fw-bold">🐾 Meu amigo cão - Pet Shop</h2>
+                    <p class="footer-muted mb-1">Cuidado e carinho para os animais de estimação.</p>
+                    <p class="footer-muted mb-0">Ipatinga - MG | (31) 3000-0000 (contato fictício)</p>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="h6 fw-bold">Acesso rápido</h2>
+                    <p class="mb-2"><a href="produtos.html">Produtos</a> · <a href="servicos.html">Serviços</a></p>
+                    <p class="mb-0"><a href="agendamento.html">Agendamento</a> · <a href="contato.html">Contato</a></p>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="h6 fw-bold">Informação</h2>
+                    <p class="footer-muted">Projeto acadêmico demonstrativo. Não realiza vendas nem reservas reais.</p>
+                </div>
+            </div>
+            <div class="footer-rule d-flex flex-column flex-md-row justify-content-between gap-2">
+                <span class="footer-muted">Desenvolvido por Douglas Duarte da Silva</span>
+                <span class="footer-muted">Fundamentos de Sistemas Web • Fase 2</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

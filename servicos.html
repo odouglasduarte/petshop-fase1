@@ -2,59 +2,97 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Banho, tosa e opções de atendimento com ou sem tele-busca.">
     <title>Serviços | Meu amigo cão - Pet Shop</title>
+    <!-- Bootstrap fornece a grade responsiva, a navegação e o carrossel. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Estilos próprios da fase 2, separados do conteúdo HTML. -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- defer carrega scripts após a leitura do HTML. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Meu amigo cão - Pet Shop</h1>
-        <p>Produtos e cuidados para cães e gatos.</p>
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a> |
-            <a href="contato.html">Contato</a>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <!-- Cabeçalho: identificação e links acessíveis em todas as páginas. -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+            <div class="container">
+                <a class="navbar-brand brand" href="index.html"><span class="brand-icon" aria-hidden="true">🐾</span>Meu amigo cão <small class="d-none d-sm-inline fw-normal">| Pet Shop</small></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="servicos.html" aria-current="page">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <hr>
-    <main>
-        <section>
-            <h2>Banho e tosa</h2>
-            <p>Oferecemos banho, tosa e a opção conjunta. Cada serviço pode ser contratado com ou sem tele-busca.</p>
-            <p>A tele-busca corresponde à busca e à devolução do animal no endereço combinado.</p>
-            <table>
-                <caption>Valores demonstrativos para cães de pequeno porte</caption>
-                <thead>
-                    <tr><th scope="col">Serviço</th><th scope="col">Sem tele-busca</th><th scope="col">Com tele-busca</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Banho</td><td>R$ 45,00</td><td>R$ 65,00</td></tr>
-                    <tr><td>Tosa</td><td>R$ 55,00</td><td>R$ 75,00</td></tr>
-                    <tr><td>Banho e tosa</td><td>R$ 85,00</td><td>R$ 105,00</td></tr>
-                </tbody>
-            </table>
-            <h3>Descrição dos atendimentos</h3>
-            <p><strong>Banho:</strong> limpeza do pelo, lavagem e secagem do animal.</p>
-            <p><strong>Tosa:</strong> corte de pelos conforme a necessidade do animal.</p>
-            <p><strong>Banho e tosa:</strong> os dois cuidados realizados no mesmo atendimento.</p>
-            <p><strong>Observação:</strong> os valores podem variar de acordo com o porte e as necessidades do animal.</p>
+    <main id="conteudo" tabindex="-1">
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow">Cuidados para o seu melhor amigo</span>
+                <h1 class="section-title">Banho e tosa</h1>
+                <p class="section-copy">Escolha o serviço e veja a diferença entre a entrega do pet no local e o atendimento com tele-busca.</p>
+                <a class="btn btn-brand px-4 py-2" href="agendamento.html">Simular agendamento</a>
+            </div>
         </section>
-        <section>
-            <h2>Como funciona a tele-busca?</h2>
-            <ol>
-                <li>O cliente consulta as opções de serviço e os preços.</li>
-                <li>A equipe combina o horário de retirada do animal.</li>
-                <li>Após o atendimento, o animal é devolvido ao responsável.</li>
-            </ol>
-            <p>Nesta fase do projeto, o site apenas apresenta as informações; o agendamento online ainda não está disponível.</p>
+        <section class="container py-5" aria-labelledby="tituloServicos">
+            <h2 id="tituloServicos" class="section-title mb-4">Nossos serviços</h2>
+            <div class="row g-4 mb-5">
+                <div class="col-md-4"><article class="service-card"><span class="feature-icon" aria-hidden="true">🛁</span><h3>Banho</h3><p>Limpeza dos pelos, lavagem e secagem do animal.</p><p class="price">A partir de R$ 45,00</p></article></div>
+                <div class="col-md-4"><article class="service-card"><span class="feature-icon" aria-hidden="true">✂️</span><h3>Tosa</h3><p>Corte dos pelos conforme a necessidade do animal.</p><p class="price">A partir de R$ 55,00</p></article></div>
+                <div class="col-md-4"><article class="service-card"><span class="feature-icon" aria-hidden="true">🐶</span><h3>Banho e tosa</h3><p>Os dois cuidados em um mesmo atendimento.</p><p class="price">A partir de R$ 85,00</p></article></div>
+            </div>
+            <!-- Tabela semântica com caption e cabeçalhos para leitores de tela. -->
+            <h2 class="h3 fw-bold mb-3">Tabela de valores</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered align-middle">
+                    <caption class="caption-top text-secondary">Valores demonstrativos para cães de pequeno porte</caption>
+                    <thead class="table-success">
+                        <tr><th scope="col">Serviço</th><th scope="col">Entrega no local</th><th scope="col">Com tele-busca</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Banho</th><td>R$ 45,00</td><td>R$ 65,00</td></tr>
+                        <tr><th scope="row">Tosa</th><td>R$ 55,00</td><td>R$ 75,00</td></tr>
+                        <tr><th scope="row">Banho e tosa</th><td>R$ 85,00</td><td>R$ 105,00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note-box mt-4"><strong>Tele-busca:</strong> retirada e devolução do pet no endereço combinado. Os valores são fictícios e podem variar conforme o porte e a necessidade do animal.</div>
         </section>
     </main>
-    <hr>
-    <footer>
-        <p><strong>Meu amigo cão - Pet Shop</strong> | Ipatinga - MG</p>
-        <p>Contato: (31) 3000-0000 (número ilustrativo)</p>
-        <p><a href="index.html">Início</a> | <a href="contato.html">Contato</a></p>
-        <p><small>Site desenvolvido por Douglas Duarte da Silva. Informações e valores fictícios.</small></p>
+    <!-- Rodapé mantido da fase 1, agora com apresentação visual personalizada. -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h2 class="h4 fw-bold">🐾 Meu amigo cão - Pet Shop</h2>
+                    <p class="footer-muted mb-1">Cuidado e carinho para os animais de estimação.</p>
+                    <p class="footer-muted mb-0">Ipatinga - MG | (31) 3000-0000 (contato fictício)</p>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="h6 fw-bold">Acesso rápido</h2>
+                    <p class="mb-2"><a href="produtos.html">Produtos</a> · <a href="servicos.html">Serviços</a></p>
+                    <p class="mb-0"><a href="agendamento.html">Agendamento</a> · <a href="contato.html">Contato</a></p>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="h6 fw-bold">Informação</h2>
+                    <p class="footer-muted">Projeto acadêmico demonstrativo. Não realiza vendas nem reservas reais.</p>
+                </div>
+            </div>
+            <div class="footer-rule d-flex flex-column flex-md-row justify-content-between gap-2">
+                <span class="footer-muted">Desenvolvido por Douglas Duarte da Silva</span>
+                <span class="footer-muted">Fundamentos de Sistemas Web • Fase 2</span>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

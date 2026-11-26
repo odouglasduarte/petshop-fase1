@@ -2,48 +2,143 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Página inicial do Meu amigo cão - Pet Shop: produtos, cuidados e agendamento demonstrativo.">
     <title>Início | Meu amigo cão - Pet Shop</title>
+    <!-- Bootstrap fornece a grade responsiva, a navegação e o carrossel. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Estilos próprios da fase 2, separados do conteúdo HTML. -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- defer carrega scripts após a leitura do HTML. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Meu amigo cão - Pet Shop</h1>
-        <p>Produtos e cuidados para cães e gatos.</p>
-        <nav aria-label="Navegação principal">
-            <a href="index.html">Início</a> |
-            <a href="produtos.html">Produtos</a> |
-            <a href="servicos.html">Serviços</a> |
-            <a href="contato.html">Contato</a>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <!-- Cabeçalho: identificação e links acessíveis em todas as páginas. -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+            <div class="container">
+                <a class="navbar-brand brand" href="index.html"><span class="brand-icon" aria-hidden="true">🐾</span>Meu amigo cão <small class="d-none d-sm-inline fw-normal">| Pet Shop</small></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <hr>
-    <main>
-        <section>
-            <h2>Bem-vindo ao Meu amigo cão - Pet Shop!</h2>
-            <p>Este espaço reúne produtos e serviços para ajudar nos cuidados diários com seu animal de estimação.</p>
-            <p>Você pode consultar nosso catálogo de produtos e conhecer as opções de banho e tosa.</p>
+    <main id="conteudo" tabindex="-1">
+        <!-- Carrossel Bootstrap com três imagens, botões e opção de pausa. -->
+        <section class="container py-4 py-lg-5" aria-label="Destaques do petshop">
+            <div id="carrosselPrincipal" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="6000" role="region" aria-roledescription="carrossel" aria-label="Destaques">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carrosselPrincipal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Imagem 1: cuidados"></button>
+                    <button type="button" data-bs-target="#carrosselPrincipal" data-bs-slide-to="1" aria-label="Imagem 2: brinquedos"></button>
+                    <button type="button" data-bs-target="#carrosselPrincipal" data-bs-slide-to="2" aria-label="Imagem 3: agendamento"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="hero-slide">
+                            <img src="imagens/pexels-kuiyibo-12002618.jpg" alt="Cão utilizando um peitoral durante passeio">
+                            <div class="hero-copy">
+                                <p class="eyebrow">Bem-vindo ao nosso petshop</p>
+                                <h1>Mais cuidado em cada momento.</h1>
+                                <p>Produtos e serviços pensados para acompanhar o dia a dia do seu melhor amigo.</p>
+                                <a class="btn btn-brand px-4 py-2" href="produtos.html">Conheça os produtos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide">
+                            <img src="imagens/pexels-maiksax-33742356.jpg" alt="Cachorrinho mordendo um brinquedo de borracha em formato de osso">
+                            <div class="hero-copy">
+                                <p class="eyebrow">Acessórios e diversão</p>
+                                <h2>Pequenos cuidados. Grandes alegrias.</h2>
+                                <p>Explore acessórios, alimentos secos e produtos de higiene para seu pet.</p>
+                                <a class="btn btn-brand px-4 py-2" href="produtos.html#acessorios">Ver acessórios</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide">
+                            <img src="imagens/pexels-eduardo-lopez-242403618-16618557.jpg" alt="Gato se alimentando em uma tigela">
+                            <div class="hero-copy">
+                                <p class="eyebrow">Banho e tosa</p>
+                                <h2>Uma rotina de bem-estar para seu pet.</h2>
+                                <p>Consulte os serviços e simule a escolha de data, horário e tele-busca.</p>
+                                <a class="btn btn-brand px-4 py-2" href="agendamento.html">Simular agendamento</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrosselPrincipal" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Imagem anterior</span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrosselPrincipal" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Próxima imagem</span></button>
+            </div>
+            <div class="carousel-tools">
+                <span class="stat-pill">Destaques do nosso catálogo</span>
+                <button class="btn btn-sm btn-outline-brand" id="pausarCarrossel" type="button" aria-pressed="false">Pausar imagens</button>
+            </div>
         </section>
-        <section>
-            <h2>O que você encontra aqui?</h2>
-            <ul>
-                <li><a href="produtos.html#acessorios">Acessórios:</a> itens para passeio e diversão.</li>
-                <li><a href="produtos.html#racoes">Rações não perecíveis:</a> alimentos secos para cães e gatos.</li>
-                <li><a href="produtos.html#higiene">Higiene e limpeza:</a> produtos para manter o ambiente limpo.</li>
-                <li><a href="servicos.html">Serviços:</a> banho e tosa com ou sem tele-busca.</li>
-            </ul>
+        <section class="container py-4 py-lg-5" aria-labelledby="tituloCategorias">
+            <div class="text-center mb-4">
+                <span class="eyebrow">O que você encontra aqui</span>
+                <h2 class="section-title" id="tituloCategorias">Tudo em um só lugar</h2>
+                <p class="section-copy mx-auto">Uma seleção simples para apresentar os produtos e cuidados disponíveis.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4"><article class="feature-card"><span class="feature-icon" aria-hidden="true">🦴</span><h3>Acessórios</h3><p>Peitorais e brinquedos para os momentos de passeio e diversão.</p><a href="produtos.html#acessorios">Ver acessórios</a></article></div>
+                <div class="col-md-4"><article class="feature-card"><span class="feature-icon" aria-hidden="true">🥣</span><h3>Rações</h3><p>Opções de alimentos secos para cães e gatos.</p><a href="produtos.html#racoes">Ver rações</a></article></div>
+                <div class="col-md-4"><article class="feature-card"><span class="feature-icon" aria-hidden="true">✨</span><h3>Higiene</h3><p>Produtos para limpeza e organização dos ambientes dos pets.</p><a href="produtos.html#higiene">Ver higiene</a></article></div>
+            </div>
         </section>
-        <section>
-            <h2>Nosso atendimento</h2>
-            <p>Confira os valores e as descrições dos serviços na página de serviços.</p>
-            <p><a href="servicos.html">Ver serviços disponíveis</a></p>
+        <section class="soft-bg py-5" aria-labelledby="tituloAtendimento">
+            <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
+                <div>
+                    <span class="eyebrow">Cuidados sob medida</span>
+                    <h2 class="section-title" id="tituloAtendimento">Banho e tosa com comodidade</h2>
+                    <p class="mb-0">Escolha entre tele-busca ou entrega do pet no local.</p>
+                </div>
+                <a class="btn btn-brand px-4 py-2" href="agendamento.html">Simular meu agendamento</a>
+            </div>
+        </section>
+        <section class="container py-5" aria-label="Relógio e informações">
+            <p class="text-secondary mb-1">Data e hora de acesso</p>
+            <p id="relogio" class="fw-bold fs-5 mb-1" aria-label="Data e hora atual">Carregando data e hora...</p>
+            <small class="text-secondary">Informação atualizada automaticamente pelo JavaScript.</small>
         </section>
     </main>
-    <hr>
-    <footer>
-        <p><strong>Meu amigo cão - Pet Shop</strong> | Ipatinga - MG</p>
-        <p>Contato: (31) 3000-0000 (número ilustrativo)</p>
-        <p><a href="index.html">Início</a> | <a href="contato.html">Contato</a></p>
-        <p><small>Site desenvolvido por Douglas Duarte da Silva. Informações e valores fictícios.</small></p>
+    <!-- Rodapé mantido da fase 1, agora com apresentação visual personalizada. -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h2 class="h4 fw-bold">🐾 Meu amigo cão - Pet Shop</h2>
+                    <p class="footer-muted mb-1">Cuidado e carinho para os animais de estimação.</p>
+                    <p class="footer-muted mb-0">Ipatinga - MG | (31) 3000-0000 (contato fictício)</p>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="h6 fw-bold">Acesso rápido</h2>
+                    <p class="mb-2"><a href="produtos.html">Produtos</a> · <a href="servicos.html">Serviços</a></p>
+                    <p class="mb-0"><a href="agendamento.html">Agendamento</a> · <a href="contato.html">Contato</a></p>
+                </div>
+                <div class="col-lg-3">
+                    <h2 class="h6 fw-bold">Informação</h2>
+                    <p class="footer-muted">Projeto acadêmico demonstrativo. Não realiza vendas nem reservas reais.</p>
+                </div>
+            </div>
+            <div class="footer-rule d-flex flex-column flex-md-row justify-content-between gap-2">
+                <span class="footer-muted">Desenvolvido por Douglas Duarte da Silva</span>
+                <span class="footer-muted">Fundamentos de Sistemas Web • Fase 2</span>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
