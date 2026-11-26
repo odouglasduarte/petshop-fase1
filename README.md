@@ -28,7 +28,7 @@ Dar continuidade ao site criado na fase 1, acrescentando apresentação visual c
 4. Formulário de cliente: nome, CPF, sexo, endereço, telefone e e-mail.
 5. Formulário de pet: nome, espécie, raça, idade, porte e observações.
 6. Seleção de banho, tosa ou banho e tosa, com tele-busca ou entrega no local.
-7. Data e horário com checagens de período, domingo, campos obrigatórios e dígitos do CPF.
+7. Data e horário com verificação de domingos, campos obrigatórios e formato do CPF (11 números).
 8. Prévia com pet, serviço, modalidade, data, horário e valor demonstrativo.
 9. Recursos de acessibilidade: textos alternativos, navegação pelo teclado, rótulos de campos, contraste, link para pular ao conteúdo e avisos dinâmicos.
 
