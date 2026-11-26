@@ -90,8 +90,8 @@ a:hover { color: #143e34; }
     border: 1px solid #dce8df;
     border-radius: 12px;
     padding: 22px;
-    height: 100%;
 }
+.feature-card, .product-card, .service-card { height: 100%; }
 .feature-icon { font-size: 28px; }
 .feature-card h3, .service-card h3, .product-card h3 {
     color: #173e37;
