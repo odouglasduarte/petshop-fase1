@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultado = document.getElementById("resultado");
   const resumoTexto = document.getElementById("resumoTexto");
   const telefones = document.getElementById("telefone");
+  // Sem JavaScript o botão permanece desabilitado: nenhum dado é enviado ao servidor.
+  document.getElementById("enviarSimulacao").disabled = false;
 
   // Datas no horário LOCAL (evita deslocamentos de data por UTC).
   function formatoDataLocal(d) {
@@ -124,6 +126,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (digito === 10) digito = 0;
     return digito === Number(valor[10]);
   }
+
+  // Ao limpar o formulário, também esconde a prévia e remove estados de erro.
+  formulario.addEventListener("reset", function () {
+    resultado.hidden = true;
+    cpf.setCustomValidity("");
+    data.setCustomValidity("");
+    estadoData.textContent = "Escolha um dia entre amanhã e os próximos 90 dias.";
+    resumoValor.textContent = "Selecione um serviço e o tipo de atendimento.";
+  });
 
   // Não armazena nem transmite dados; mostra apenas prévia sem CPF/endereço.
   formulario.addEventListener("submit", function (evento) {
