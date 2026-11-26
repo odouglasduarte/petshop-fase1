@@ -26,7 +26,7 @@ No arquivo `js/app.js` foram organizadas funções para:
 Cadastro do cliente (nome, CPF, sexo, telefone, e-mail, endereço e CEP), cadastro do pet (nome, espécie, raça, idade, porte e observações), serviço (banho ou tosa, com opção conjunta), método de atendimento (tele-busca ou entrega no local), calendário e horário. Foram usados inputs, selects, radio buttons, checkbox, number, e-mail, placeholder e required.
 
 ## 5. Acessibilidade
-Foram acrescentados ou mantidos: textos `alt` nas fotografias, rótulos `label` nos campos, cabeçalhos semânticos de tabela, navegação por teclado, indicador de foco, link para pular ao conteúdo, controles para pausar o carrossel e `aria-live` para mensagens de status. A folha CSS também respeita preferência por movimentos reduzidos.
+Foram utilizados recursos de acessibilidade estudados na Aula 10, como textos `alt` nas fotografias, rótulos `label` nos campos, cabeçalhos semânticos de tabela, navegação por teclado, indicador de foco, link para pular ao conteúdo, controles para pausar o carrossel e `aria-live` para mensagens de status.
 
 ## 6. Limitação técnica importante
 O GitHub Pages publica arquivos estáticos. Portanto o formulário é **demonstrativo**: valida as informações e apresenta um resumo, mas **não salva CPF, endereço ou dados do cliente, nem confirma agendamento real**. Uma implementação com armazenamento e confirmação de horários exigiria um serviço de backend.
