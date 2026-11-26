@@ -1,6 +1,6 @@
 # Meu amigo cão - Pet Shop | Fase 2
 
-Projeto individual da disciplina **Fundamentos de Sistemas Web** (PUCRS).
+Projeto da disciplina **Fundamentos de Sistemas Web** (PUCRS).
 
 **Autor:** Douglas Duarte da Silva  
 **Site:** https://odouglasduarte.github.io/petshop-fase1/  
